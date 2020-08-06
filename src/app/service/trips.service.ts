@@ -12,19 +12,19 @@ export class TripsService {
 
   constructor(private httpService: HttpService, private store: Store) { }
 
-  public getTripsDetails(): Observable<IHttpResponse> {
+  public getTripsDetails(): Observable<[]> {
     return this.httpService.GET(`${environment.serverUrl}${environment.apiPrefix}`);
   }
 
-  public createTrip(payload: ITripsDetails): Observable<IHttpResponse> {
+  public createTrip(payload: ITripsDetails): Observable<[]> {
     return this.httpService.POST(`${environment.serverUrl}${environment.apiPrefix}${payload.id}`, payload);
   }
 
-  public updateTrip(payload: ITripsDetails): Observable<IHttpResponse> {
+  public updateTrip(payload: ITripsDetails): Observable<ITripsDetails> {
     return this.httpService.PUT(`${environment.serverUrl}${environment.apiPrefix}${payload.id}`, payload);
   }
 
-  public deleteTrip(id: number): Observable<IHttpResponse> {
+  public deleteTrip(id: number): Observable<[]> {
     return this.httpService.DELETE(`${environment.serverUrl}${environment.apiPrefix}${id}`);
   }
 }
