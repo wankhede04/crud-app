@@ -1,0 +1,15 @@
+.board-box {
+  height: 343px;
+  border: 1px solid #EAEAEA;
+}
+
+.text-content {
+  padding: 10px;
+
+  textarea {
+    border: none;
+    overflow: auto;
+    outline: none;
+    resize: none;
+  }
+}
