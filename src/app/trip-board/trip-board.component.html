@@ -1,5 +1,9 @@
 <div class="board-box">
   <div class="text-content">
-    Working
+    <ngb-datepicker #dp [(ngModel)]="model" (navigate)="date = $event.next" (click)="tripValue($event.target.innerHTML)"></ngb-datepicker>
   </div>
+</div>
+
+<div class="note">
+  <p>* Please press `ENTER` after updating the Destination and Comments.</p>
 </div>
