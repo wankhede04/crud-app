@@ -15,6 +15,8 @@ import { HomeComponent } from './home/home.component';
 import { TripMetadataComponent } from './trip-metadata/trip-metadata.component';
 import { TripBoardComponent } from './trip-board/trip-board.component';
 import { TripDetailsState } from './store/trips/trips.state';
+import { HttpClientModule } from '@angular/common/http';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 const routes: Routes = [
   {
@@ -48,7 +50,9 @@ const routes: Routes = [
     }),
     NgxsLoggerPluginModule.forRoot({
       disabled: environment.production
-    })
+    }),
+    HttpClientModule,
+    NgbModule
   ],
   providers: [],
   bootstrap: [AppComponent]
