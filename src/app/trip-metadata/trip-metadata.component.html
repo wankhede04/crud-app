@@ -1,0 +1,8 @@
+<div class="data-box" tabindex="1" (click)="openTrip()">
+  <span class="trip-title">
+    {{ trips.tripDescription.substring(0, 25) }} ...
+  </span>
+  <span class="time">
+    {{ trips.updatedAt | date: 'shortTime' }}
+  </span>
+</div>

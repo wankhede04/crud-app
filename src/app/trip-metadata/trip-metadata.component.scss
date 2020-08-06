@@ -1,0 +1,21 @@
+.data-box {
+  display: grid;
+  padding: 10px 12px;
+  border: 1px solid #EAEAEA;
+  border-bottom: none;
+  cursor: pointer;
+
+  &:focus {
+    background: #FFF5B0;
+    outline: none;
+  }
+}
+
+.trip-title {
+  font-weight: 600;
+  font-size: 14px;
+}
+
+.time {
+  font-size: 10px;
+}
