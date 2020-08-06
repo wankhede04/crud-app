@@ -8,6 +8,7 @@
 
 .trip-rows {
   overflow-y: auto;
+  overflow-x: hidden;
 
   :last-child {
     border-bottom: 1px solid #EAEAEA;
@@ -38,7 +39,7 @@ button {
 
 @media screen and (min-width: 768px) {
   .trip-rows {
-    height: 343px;
+    height: 500px;
   }
 
   .toggle-button {

@@ -16,24 +16,14 @@ export class HomeComponent implements OnInit {
   public trips$: Observable<ITripsDetails[]>;
 
   public selectedTripID: number;
-  public selectedTrip: ITripsDetails[];
+  public selectedTrip: ITripsDetails;
   public show: boolean = true;
 
-  constructor(private store: Store) { }
-
-  ngOnInit() {
+  constructor(private store: Store) {
+    this.store.dispatch(new Trips.Get);
   }
 
-  public createTrip() {
-    const trip: ITripsDetails = {
-      id: 0,
-      destination: 'Lavda',
-      start: new Date(),
-      duration: 7,
-      comments: 'Gorgeous',
-    }
-    this.store.dispatch(new Trips.Create(trip));
-    this.selectedTripID = trip.id;
+  ngOnInit() {
   }
 
   public deleteTrip() {
@@ -42,15 +32,18 @@ export class HomeComponent implements OnInit {
 
   public getSelectedTrip(tripID: number) {
     this.selectedTripID = tripID;
+    this.trips$.subscribe(trip => {
+      this.selectedTrip = trip.filter(trip => trip.id === tripID)[0];
+    });
   }
 
-  public getTripDescription(comment: string) {
+  public getTripDescription(selectedDate: string) {
     let tripDetails: ITripsDetails = {
-      id: 0,
-      destination: 'Lavda',
-      start: new Date(),
-      duration: 7,
-      comments: comment,
+      id: this.selectedTrip.id,
+      destination: this.selectedTrip.destination,
+      start: selectedDate,
+      duration: this.selectedTrip.duration,
+      comments: this.selectedTrip.comments ? this.selectedTrip.comments : '',
     }
     this.store.dispatch(new Trips.Update(this.selectedTripID, tripDetails));
   }
