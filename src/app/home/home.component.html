@@ -1,0 +1,27 @@
+<div class="container">
+  <div class="menus">
+  </div>
+  <div class="row dropdown">
+    <button (click)="toggleDropdown()" class="toggle-button">
+      <img src="https://img.icons8.com/ios-glyphs/24/000000/menu.png"/>
+    </button>
+    <div class="col-md-4 trip-rows dropdown-content" *ngIf="show">
+      <div *ngFor="let trip of trips$ | async">
+        <app-trip-metadata
+          (click)="toggleDropdown()"
+          *ngIf="!searchedKeyword"
+          [trips]="trip"
+          (selectedTripEvent)="getSelectedTrip($event)"
+        ></app-trip-metadata>
+      </div>
+    </div>
+    <div class="col-md-8">
+      <app-trip-board
+        (tripDetailsEvent)="getTripDescription($event)"
+        [allTrips]="trips$ | async"
+        [currentTripID]="selectedTripID"
+      ></app-trip-board>
+    </div>
+  </div>
+</div>
+<router-outlet></router-outlet>
