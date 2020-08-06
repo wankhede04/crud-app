@@ -18,28 +18,28 @@ export class HttpService {
     );
   }
 
-  public POST(url: string, body: any) {
+  public POST(url: string, body: any): Observable<IHttpResponse | any> {
     return this.http.post(url, body).pipe(
         tap((res: IHttpResponse) => res),
         catchError(this.handleError)
     );
   }
 
-  public PUT(url: string, body: any) {
+  public PUT(url: string, body: any): Observable<IHttpResponse | any> {
     return this.http.put(url, body).pipe(
         tap((res: IHttpResponse) => res),
         catchError(this.handleError)
     );
   }
 
-  public DELETE(url: string) {
+  public DELETE(url: string): Observable<IHttpResponse | any> {
     return this.http.delete(url).pipe(
         tap((res: IHttpResponse) => res),
         catchError(this.handleError)
     );
   }
 
-  private handleError(error: any) {
+  private handleError(error: any): Observable<IHttpResponse | any> {
     return observableThrowError(error.error || 'Server error-layout');
   }
 }
