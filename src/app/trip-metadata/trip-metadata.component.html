@@ -4,7 +4,7 @@
     Destination: <input type="text" #tripDestination [(ngModel)]="destination" (keyup.enter)="updateTripdetails(tripDestination.value)"> <br>
     Start Date: {{ trips.start | date: 'mediumDate' }} <br>
     Duration: {{ trips.duration }} <br>
-    Comments: {{ trips.comment }} <input type="text" #tripComment [(ngModel)]="comment" (keyup.enter)="updateTripdetails(tripComment.value)">
+    Comments: <input type="text" #tripComment [(ngModel)]="comment" (keyup.enter)="updateTripdetails(tripComment.value)">
   </div>
   <div class="button col-md-1">
     <button (click)="deleteTrip(trips.id)" [ngbTooltip]="Delete" placement="bottom">
