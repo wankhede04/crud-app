@@ -1,8 +1,18 @@
-<div class="data-box" tabindex="1" (click)="openTrip()">
-  <span class="trip-title">
-    {{ trips.tripDescription.substring(0, 25) }} ...
-  </span>
-  <span class="time">
-    {{ trips.updatedAt | date: 'shortTime' }}
-  </span>
+<div class="data-box row" tabindex="1" (click)="openTrip()">
+  <div class="trip-title col-md-11">
+    ID: {{ trips.id }} <br>
+    Destination: <input type="text" #tripDestination [(ngModel)]="destination" (keyup.enter)="updateTripdetails(tripDestination.value)"> <br>
+    Start Date: {{ trips.start | date: 'mediumDate' }} <br>
+    Duration: {{ trips.duration }} <br>
+    Comments: {{ trips.comment }} <input type="text" #tripComment [(ngModel)]="comment" (keyup.enter)="updateTripdetails(tripComment.value)">
+  </div>
+  <div class="button col-md-1">
+    <button (click)="deleteTrip(trips.id)" [ngbTooltip]="Delete" placement="bottom">
+      <img src="assets/cross.svg" alt="">
+    </button>
+  </div>
 </div>
+
+<ng-template #Delete>
+  <p class="delete-text">Delete</p>
+</ng-template>

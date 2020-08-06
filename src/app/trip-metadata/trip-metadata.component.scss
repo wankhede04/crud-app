@@ -1,5 +1,5 @@
 .data-box {
-  display: grid;
+  display: flex;
   padding: 10px 12px;
   border: 1px solid #EAEAEA;
   border-bottom: none;
@@ -18,4 +18,27 @@
 
 .time {
   font-size: 10px;
+}
+
+input {
+  border: none;
+  outline: none;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.button {
+  button {
+    border: none;
+    background: transparent;
+
+    img {
+      width: 20px;
+    }
+  }
+}
+
+.delete-text {
+  margin: 0;
+  padding: 0;
 }
