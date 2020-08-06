@@ -5,7 +5,7 @@ export interface TripsDetailsStateModel {
 export interface ITripsDetails {
   id: number;
   destination: string;
-  start: Date;
+  start: Date | string;
   duration: number;
   comments: string;
   color?: string;
